@@ -1,85 +1,83 @@
 ﻿# Dev Insights - Mini Blog Platform
 
-Formative Assessment 1: React "Mini Blog" Project  
-Student Developer: Bonae Ineza (Kigali, Rwanda)  
-Tech Stack: React 19, TypeScript, Vite, CSS3  
+**Student:** Bonae Ineza  
+**Course:** Formative Assessment 1 - React & TypeScript Project  
+
 
 ---
 
-## Project Overview
+## About the Project
 
-Dev Insights is an internal mini-blog platform built with React and TypeScript using Vite. It allows team members to share quick development tips and insights.
-
-This project fulfills the Formative Assessment 1 requirements:
-- **TypeScript Integration**: Created a `Post` interface for post data objects (`src/types/post.ts`).
-- **Core Components**: Built `Header`, `Post`, `PostList`, and `App` components.
-- **Styling Methods**: Used External CSS stylesheets along with Dynamic Inline Styles for category tags and author background highlighting.
-- **Conditional Styling**: Highlighted posts written by **Bonae Ineza** with a light blue background, and added a "New!" badge for recent posts.
-- **Optimization & HOC**: Wrapped `Post` with `React.memo`, used unique `key` props on list mapping, and created a `withLogger` Higher-Order Component to log mount/unmount messages to the console.
-
+Dev Insights is a simple internal blog platform built for web developers to share quick tips and updates. I built this app using React, Vite, and TypeScript 
 ---
 
-## How to Run the Application
+## How to Run the App
 
-1. **Clone the repository**:
+1. Clone this repository:
    ```bash
    git clone https://github.com/Bonaeineza31/mini-blog.git
    cd mini-blog
    ```
 
-2. **Install dependencies**:
+2. Install project packages:
    ```bash
    npm install
    ```
 
-3. **Start the development server**:
+3. Start the dev server:
    ```bash
    npm run dev
    ```
    Open `http://localhost:5173` in your browser.
 
-4. **Build for production**:
+4. Build for production:
    ```bash
    npm run build
    ```
 
 ---
 
-## Project Structure
+## Folder Structure
 
 ```
 mini-blog/
 ├── src/
 │   ├── components/
-│   │   ├── Header/       # Header component with Dev Insights title and New Post button
-│   │   ├── Post/         # Post card component (React.memo)
-│   │   └── PostList/     # List component with author filter buttons
-│   ├── data/             # Mock dataset with Rwandan author posts
+│   │   ├── Header/       # Top navigation header with New Post button
+│   │   ├── Post/         # Individual blog post card
+│   │   └── PostList/     # List of blog posts with author filter buttons
+│   ├── data/             # Sample posts data (mockPosts.ts)
 │   ├── hoc/              # withLogger Higher-Order Component
-│   ├── types/            # TypeScript post interface
-│   ├── App.tsx           # Main application root
+│   ├── types/            # TypeScript Post interface (post.ts)
+│   ├── App.tsx           # Main app component
 │   ├── App.css           # App layout styling
-│   └── index.css         # Base CSS reset
-├── README.md
+│   └── index.css         # Reset CSS styles
+├── INSTRUCTION.md        # Assessment instructions
+├── README.md             # Project documentation
 └── package.json
 ```
 
 ---
 
-## Architectural Choices & Reflections
+## My Choices & Reflections
 
-### Functional vs Class Components
-I chose functional components using React Hooks because functional components are modern, concise, and easy to optimize using `React.memo`.
+### 1. Functional Components vs Class Components
+I chose functional components for this project. Functional components are simpler to write, clean to read, and work smoothly with React hooks and `React.memo` optimization.
 
-### Styling Methods
-I combined External CSS files (`Header.css`, `Post.css`, `PostList.css`) for layout structure with dynamic inline styles in `Post.tsx` to handle category badge background colors and conditional author highlighting.
+### 2. Styling Methods Used
+I applied two styling methods:
+- **External CSS**: Used separate CSS files (`Header.css`, `Post.css`, `PostList.css`) for layout structure, fonts, and button styles.
+- **Inline Styles**: Used dynamic inline styles in `Post.tsx` to set category badge colors and to highlight posts written by **Bonae Ineza** with a light blue background and accent border.
 
-### Optimization & HOC
-- `React.memo` stops `Post` cards from re-rendering if their props have not changed.
-- Unique `key={post.id}` props allow React to track list items efficiently.
-- `withLogger` logs when components mount and unmount in the browser console.
+### 3. Optimization and HOC
+- **`React.memo`**: I wrapped the `Post` component with `React.memo` so it avoids re-rendering when props do not change.
+- **Unique `key` Props**: Rendered post lists using `key={post.id}` to help React track items efficiently.
+- **`withLogger` HOC**: Created a Higher-Order Component (`withLogger.tsx`) that prints a log message to the browser console when `PostList` mounts and unmounts.
 
-### External Libraries Used
-- `react` & `react-dom` (v19)
-- `typescript` (v5)
-- `vite` (v6)
+### 4. Challenges & Solutions
+A minor challenge was deciding how to handle dates in TypeScript. Storing dates as readable text strings (`"2026-09-16"`) made it simple to render dates directly in post cards without complex date formatting code.
+
+### 5. External Packages Used
+- `react` & `react-dom`
+- `typescript`
+- `vite`
