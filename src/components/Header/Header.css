@@ -72,13 +72,13 @@
 /* Toast Notification Styling */
 .toast-notification {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: 28px;
+  right: 28px;
   background-color: #1e293b;
   color: #ffffff;
-  padding: 0.75rem 1.25rem;
+  padding: 0.8rem 1.3rem;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
   font-size: 0.9rem;
   font-weight: 500;
   border-left: 4px solid #3b82f6;
